@@ -1,0 +1,148 @@
+VSC
+XAMPP
+COMPOSER
+MariaDB o Mysql, mongo o el que preferimos
+Node.js (el recomendado, la version estable)
+
+
+chequear las vareables de entorno
+para que esten siempre disponibles los ponemos en variables del sistema
+
+instalador de laravel para crear las aplicaciones sin necesitad de composer
+
+1ra forma de crear mi proyecto
+
+  composer create-project laravel/laravel miproyecto 
+
+2da forma
+
+  laravel new nombreDelProyecto
+
+
+instalar laravel en forma global
+
+composer require laravel/installer
+
+
+levantar el serve
+
+php artisan serve
+
+*--------------------------------*
+
+
+breeze
+
+instalar
+composer require laravel/breeze
+
+despues 
+
+php artisan breeze:install vue o react o el que queremos usar con blade para saber como renderizar la applicacion
+
+php artisan breeze:install vue --ssr //  inertia   ssr (server site rendering)
+                                                api //next o new para tr4abajar con esa tecnologia
+
+php artisan breeze:install        --dark // para gestion el tema claro y oscuro
+
+php artisan breeze:install
+
+
+*--------------------------------*
+
+
+Jetstream
+despues de crear el proyecto de jetstream nos posicionamos en el directorio del proyecto
+cd authjetstream x ejemplo
+instalar 
+composer require laravel/jetstream
+
+php artisan jetstream:install livewire o inertia --teams (para utilizar equipos dentro de las autenticaciones en inertia), con inertia tambien podemos hacer --ssr y/o --dark 
+
+despues instalamos las dependencias y migramos las tablas y levantamos el servidor
+npm install
+npm run dev 
+php artisan migrate
+php artisan serve
+
+*--------------------------------*
+
+
+LIVEWIRE
+instalamos un nuevo proyecto 
+con laravel new nombre proycto, ejemplo livewireexample
+entramos a la carpeta del proyecto
+composer require livewire/livewire
+
+
+incluir livewire en el layouts con @livewireStyles
+
+ejemplo de como se llama al componente
+<button wire:click="increment">Increment</button>
+
+ciclo de vida -  hocks
+    public function mount()
+    {
+        $this->fill(['count' => 25]);
+    }
+
+esto hace que en lugar de iniciar en 0, inicia en 25.
+
+<div class="d-none d-sm-block">
+  Hello Word
+</div>
+
+despues es crud es igual que siempre pero dentro del archo de livewire, ejemplo Notes.php de la carpeta livewire del proyecto.
+
+*---------------------------------------*
+
+INERTIA
+puede utilizar VueJs, ReactJs
+
+instalamos el pryecto de laravel
+entramos al projecto e instalamos 
+composer require laravel/jetstream
+php artisan jetstream:install inertia
+
+*---------------------------------------*
+
+File Storage
+
+ filesystem.php en la carpeta config del proyecto
+ todas las modificaciones no se hacen en filesystem.php, sino en el .env como siempre
+
+
+# FILESYSTEM_DISK="s3" // o como local o ftp o sftp
+# si es 's3' tenemos que tener todas las variables para poder acceder al almacenado de amazon web service
+
+
+*---------------------------------------*
+
+
+
+Localizacion
+
+necesitamos la carpeta lang en donde se agregan los lenguajes, uno por cada uno
+
+la configuracion la hacemos en la carpeta config/app.php
+
+#    'timezone' => 'UTC',
+      'timezone' => 'America/Argentina/Buenos_Aires',
+
+#    'locale' => 'en',
+      'locale' => 'es',
+
+#    'fallback_locale' => 'en',
+      'fallback_locale' => 'es',
+
+#    'faker_locale' => 'en_US',
+      'faker_locale' => 'es_AR',
+
+  $msg = __('welcome.greetings', ['name' => 'Jorge']);
+
+  welcome es el archivo en la carpeta de cada lenguaje, la podemos crear nosotros y poner las variable para que tengan la traduccion, esto tiene que ser en cada lenguaje.
+  
+
+
+
+
