@@ -2,6 +2,7 @@
 
 namespace App\Observers;
 
+use App\Models\Invoice;
 use App\Models\Order;
 
 class OrderObserver
@@ -11,7 +12,10 @@ class OrderObserver
      */
     public function created(Order $order): void
     {
-        //
+        Invoice::create([
+            'amount' => $order->amount,
+            'order_id' => $order->id
+        ]);
     }
 
     /**

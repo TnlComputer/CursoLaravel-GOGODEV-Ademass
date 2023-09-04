@@ -4,10 +4,13 @@ namespace App\Providers;
 
 // use App\Events\CreateOrderEvent;
 // use App\Listeners\GenerateInvoiceListener;
+
+use App\Models\Order;
+use App\Observers\OrderObserver;
+use Illuminate\Support\Facades\Event;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
-use Illuminate\Support\Facades\Event;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -25,12 +28,16 @@ class EventServiceProvider extends ServiceProvider
         // ],
     ];
 
+    // protected $observers = [
+    //     Order::observe(OrderObserver::class)
+    // ];
+
     /**
      * Register any events for your application.
      */
     public function boot(): void
     {
-        //
+        Order::observe(OrderObserver::class);
     }
 
     /**
