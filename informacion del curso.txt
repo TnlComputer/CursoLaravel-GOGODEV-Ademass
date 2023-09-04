@@ -143,6 +143,31 @@ la configuracion la hacemos en la carpeta config/app.php
   welcome es el archivo en la carpeta de cada lenguaje, la podemos crear nosotros y poner las variable para que tengan la traduccion, esto tiene que ser en cada lenguaje.
   
 
+*---------------------------------------*
+
+asset bind con VITE
+
+instalar Node
+
+npm i  con eso instala las dependencias que necesitamos 
+
+configuramos el archivo vite.config.js para agregar los recursos que necesitamos
+
+en una apw se importa el app.css para que no de error
+
+import "../css/app.css"; // si es una APW
+
+
+*---------------------------------------*
+Dompdf
+
+instalar dompdf 
+composer require barryvdh/laravel-dompdf
+
+para copiar la configuracion de DomPDF a config tenemos que hacer
+
+php artisan vendor:publish --provider="Barryvdh\DomPDF\ServiceProvider"
+
 
 
 
