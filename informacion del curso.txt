@@ -169,5 +169,42 @@ para copiar la configuracion de DomPDF a config tenemos que hacer
 php artisan vendor:publish --provider="Barryvdh\DomPDF\ServiceProvider"
 
 
+*---------------------------------------*
+Import Export CSV libreria
+
+para instalarla hacemos
+
+composer require maatwebsite/excel -W
+
+en el php.inicia
+habilitar las extensiones gd y zip
+sin eso da error la instalacion
 
 
+import
+php artisan make:import ProductImport --model=Product
+
+el --model=Prodcut es para que agregue a la importacion el model de procutos
+
+    public function import(Request $request)
+    {
+        $request->validate([
+            'document_csv' => 'required|mimes:csv|max:2048'
+        ]);
+
+        try {
+            $file = $request->file('document_csv');
+            Excel::import(new ProductImport, $file);
+            return redirect()->route('index');
+        } catch (\Exception $e) {
+            dd("Error importing");
+        }
+    }
+
+Exportar archivo Config
+php artisan vendor:publish --provider="Maatwebsite\Excel\ExcelServiceProvider" --tag=config
+
+    public function export()
+    {
+        return Excel::download(new ProductsExport, 'products.csv');
+    }
