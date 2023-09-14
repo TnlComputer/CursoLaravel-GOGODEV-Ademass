@@ -208,3 +208,25 @@ php artisan vendor:publish --provider="Maatwebsite\Excel\ExcelServiceProvider" -
     {
         return Excel::download(new ProductsExport, 'products.csv');
     }
+
+
+*---------------------------------------*
+
+
+Utilidades
+
+Paginacion
+
+tenemos 2 
+pagination y simplePagination
+
+para personalizar la vista, podemos traer de vendor con este comando
+
+php artisan vendor:publish --tag=laravel-pagination
+
+asi con esa instruciones podemos modificar a nuestro gusto la plantilla blade en donde podemos decirle cual usar en la llamada a los link
+
+{{ $users->links('bootstrap-5.blade.php') }} 
+
+asi usa esta vista en lugar de la default, tambien le podemos pasar parametros, pero es conveniente modificar como se ve, asi no tenemos que modificar toda la Paginacion
+
