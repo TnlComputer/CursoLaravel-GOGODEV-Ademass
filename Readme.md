@@ -47,3 +47,5 @@ A lo largo de 50 horas de formación, con todo el soporte multimedia necesario p
 #18 Curso de LARAVEL profesional - IMPORTAR / EXPORTAR CSV / EXCEL
 
 #19 Curso de LARAVEL profesional - UTILIDADES
+
+#20 Curso de LARAVEL profesional - TESTING

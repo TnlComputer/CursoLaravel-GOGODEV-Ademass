@@ -230,3 +230,11 @@ asi con esa instruciones podemos modificar a nuestro gusto la plantilla blade en
 
 asi usa esta vista en lugar de la default, tambien le podemos pasar parametros, pero es conveniente modificar como se ve, asi no tenemos que modificar toda la Paginacion
 
+
+
+TESTING
+
+testing unitarios
+
+php artisan make:test UserTest
+
