@@ -238,3 +238,21 @@ testing unitarios
 
 php artisan make:test UserTest
 
+los test se ejecutan con 
+php artisan test
+
+truco para que no tengamos que realizar siempre procedimientos de borrar los datos de las tablas
+
+    public function test_set_database_config()
+    {
+        Artisan::call('migrate:reset');
+        Artisan::call('migrate');
+        Artisan::call('db:seed');
+
+        $response = $this->get('/');
+        $response->assertStatus(200);
+    }
+ 
+ como primera funcion de nuestro testing.
+ tenemos que hacer el seeder necesario para tener los datos de prueba necesarios.
+ 
