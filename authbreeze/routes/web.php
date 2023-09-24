@@ -30,4 +30,4 @@ Route::middleware('auth')->group(function () {
     Route::get('/example', [ExampleController::class, 'index'])->name('example');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

@@ -255,4 +255,27 @@ truco para que no tengamos que realizar siempre procedimientos de borrar los dat
  
  como primera funcion de nuestro testing.
  tenemos que hacer el seeder necesario para tener los datos de prueba necesarios.
- 
+
+
+
+
+ *---------------------------------*
+ DEPLOY
+
+ configuramos el .env
+ APP_NAME=TNLCOMPUTER o "el nombre del sitio"  entre comillas si queremos que tenga espacios.
+ APP_ENV=prod
+ APP_DUBUG=flase ---- esto es IMPORTANTISIMO
+ APP_URL=https://tnlcomputer.com.ar 
+
+ despues las DB en donde ponemos los datos de la base de datos
+
+
+ en github
+
+ vamos a settings
+ secrets and variables
+ actions 
+ new repository secret
+  y hacemos los 4 secrets que necesitamos.
+  
