@@ -9,26 +9,27 @@ use App\Models\User;
 
 class UserController extends Controller
 {
-    public function index()
-    {
-        // tenemos dos paginate y simplePaginate
-        // $users = User::paginate(15);
-        // return view('index', compact('users'));
-        return User::paginate(15);
-    }
+  public function index()
+  {
+    // tenemos dos paginate y simplePaginate
+    // $users = User::paginate(15);
+    // return view('index', compact('users'));
+    return User::paginate(15);
+  }
 
-    public function search()
-    {
-        return view('search');
-    }
+  public function search()
+  {
+    return view('search');
+  }
 
-    public function searchPost(SearchRequest $request)
-    {
-        // $request->validate([
-        //     'name' => 'required|min:3|max:255',
-        // ]);
+  public function searchPost(SearchRequest $request)
+  {
+    // $request->validate([
+    //     'name' => 'required|min:3|max:255',
+    // ]);
 
-        $users = User::where('name', '%like%', $request->name)->get();
-        return view('search-results', compact('users'));
-    }
+    $users = User::where('name', 'like', '%' . $request->name . '%')->get();
+    // $users = User::where('name', '%like%', $request->name)->get();
+    return view('search-results', compact('users'));
+  }
 }
